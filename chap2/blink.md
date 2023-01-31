@@ -1,4 +1,7 @@
 
+[![Link to YouTube Video](https://github.com/falconphysics/electronics/blob/main/chap2/Screen%20Shot%202023-01-31%20at%208.13.09%20AM.png)](https://www.youtube.com/watch?v=ap8lc19qhoo&embeds_euri=http%3A%2F%2Fwww.highschoolmaker.com%2F&feature=emb_imp_woyt)
+
+
 ```
 /*
   Blink
