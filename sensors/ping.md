@@ -1,4 +1,6 @@
 
+![Circuit for theRange Finder](images/range_finder.png)
+
 ```
 // defines pins numbers
 const int trigPin = 11;
