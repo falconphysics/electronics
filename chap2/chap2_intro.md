@@ -3,7 +3,7 @@ In Chapter 2 we will begin working with our Arduinos. This will include beginnin
 
 ## Work through the following:
 1. Introduction to Arduino IDE
-2. Blink – Introduction to Arduino
+2. [Blink – Introduction to Arduino](blink.md)
 3. Breadboard – Introduction to Arduino
    - Resistors
 ## Chapter 2 Assignments:
