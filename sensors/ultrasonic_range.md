@@ -14,11 +14,11 @@ void setup() {
   pinMode(echoPin, INPUT); // Sets the echoPin as an Input
   Serial.begin(9600); // Starts the serial communication
 }
-void loop() {
- 
+
+void loop() { 
   Serial.print("Distance: ");
-  Serial.println(readSensor());
-   
+  Serial.println(readSensor());  
+  delay(10);
 }
 
 
