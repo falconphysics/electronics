@@ -39,3 +39,7 @@ void loop(){
   delay(1000);
 }
 ```
+## Play and Learn
+- Is it accurate?
+- How quickly does the temperature reading change?
+- How quickly does the humidity reading change?
