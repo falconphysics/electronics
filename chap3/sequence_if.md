@@ -93,6 +93,6 @@ This would be true only if a had a value between 0 and 10. You could tack on mor
   ```
 Would be true if either or both statements were true.You might also want to investigate else and else if. This can be another way to ask multiple questions at the same time. For more detail on this you should check out the [Arduino Reference entry on Else](https://www.arduino.cc/reference/en/language/structure/control-structure/else/).
 
-###Time to play:
+### Time to play:
 - Add a couple more LEDs and change your code to accommodate them.
 - Make the sequence go in the other direction. That is to say from 9 to 13.
