@@ -1,3 +1,7 @@
+# DHT11 Temperature and Humididy Sensor
+
+You will need to download and install a library to work with this sensor. In the Arduino IDE go to the "Tools Menu - Managle Libraries". Search for and install "DFRobot_DHT11" 
+
 ![Arduino with DHT11 wired](images/Arduino_DHT11.png)
 
 ```
