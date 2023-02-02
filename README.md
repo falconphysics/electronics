@@ -9,4 +9,4 @@ This is a collection of resources for a class that I teach. It is currently bein
 - [Chapter 6](chap6/readme.md) - Analog Data and Sensors
 
 ## Extra Stuff
-- [Sensors and Such](sensors)
+- [Sensors and Such](sensors/readme.md)
