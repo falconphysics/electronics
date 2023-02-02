@@ -72,3 +72,27 @@ In this case it is asking if ledPin equals 8. We must use double equal sign to a
 ## Comparison Operators
 
 In the table below are the other comparison operators you can use with an if statement.
+|syntax | What it Means |
+| --- | ----------- |
+ | x==y	| x is equal to y |
+ | x!=y	| x is not equal to y |
+ | x>y	| x is greater than y |
+ | x>=y	| x is greater than or equal to y |
+ | x<y	| x is less than y |
+ | x<=y	| x is less than or equal to y |
+ 
+## More Stuff
+
+In the future, you might want to ask two questions in the same if statement. In this case you would use a Boolean Operator. So if you wanted to ask two questions and wanted both to be true you’d ask:
+```
+  if (a>0 && a<10)
+  ```
+This would be true only if a had a value between 0 and 10. You could tack on more &&’s and ask three or more questions as well. If you needed only one of the statements to be true you would use or instead of and. For or in Arduino, and many other programing languages, you use the “pipe” (shift-backslash). Just as and requires double-ampersands &&, or requires double-pipe ||:
+```
+  if (a>=0 || b>=0)
+  ```
+Would be true if either or both statements were true.You might also want to investigate else and else if. This can be another way to ask multiple questions at the same time. For more detail on this you should check out the [Arduino Reference entry on Else](https://www.arduino.cc/reference/en/language/structure/control-structure/else/).
+
+###Time to play:
+- Add a couple more LEDs and change your code to accommodate them.
+- Make the sequence go in the other direction. That is to say from 9 to 13.
