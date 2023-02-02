@@ -1,5 +1,5 @@
 # 3.1 – SEQUENCE LEDS WITH IF
-![Arduino with 5 LEDs](Arduino-5LEDs.png)
+![Arduino with 5 LEDs](images/Arduino-5LEDs.png)
 
 Let’s say you want to sequence LEDs, that is to say turn them on and off one after the other, but you’re lazy. You did this in an earlier lesson but your sketch had a lot of repetition. As it turns out, computers are great at repetition. They can do the same thing over and over again while each time changing one thing. Create a circuit with LEDs in pins 9-13. Don’t forget you’ll need a resistor for each LED.
 
@@ -57,7 +57,7 @@ This is an “if” function. It asks the questions, is this true? In this case 
 If the statement in parenthesis is true then the code in the curly braces is run. If the statement is false then the code in the curly braces is skipped.
 
 You may also have noticed that the “if” line does not end in a semi-colon. This is true of any line that is immediately followed by a set of curly braces. You’ll notice neither setup nor loop are followed by semi-colons either.
-[![YouTube Thumbnail](if_yt.png)](https://youtu.be/xNfma0XAM6I)
+[![YouTube Thumbnail](images/if_yt.png)](https://youtu.be/xNfma0XAM6I)
 ### Other stuff to know:
 
 We could have used this code instead

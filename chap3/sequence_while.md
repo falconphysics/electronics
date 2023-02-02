@@ -1,5 +1,5 @@
 # 3.2 – SEQUENCE LEDS WITH WHILE
-![Arduino with 5 LEDs](Arduino-5LEDs.png)
+![Arduino with 5 LEDs](images/Arduino-5LEDs.png)
 
 In programing there is almost always multiple ways to arrive at the same result. In this case we will use another function to turn on and off our LEDs one after the other. Upload the following code to your Arduino and see what it does. It should look very similar to the last lesson.
 ```
@@ -20,7 +20,7 @@ void loop() {
   ledPin = 13;     
 }
 ```
-[![YouTube Thumbnail](while_yt.png)](https://youtu.be/NpMEPx3sPbI)
+[![YouTube Thumbnail](images/while_yt.png)](https://youtu.be/NpMEPx3sPbI)
 
 Overall, this sketch is very similar to the “If Loop” in our last lesson. It relies on a new function, however.
 ```
