@@ -57,3 +57,18 @@ This is an “if” function. It asks the questions, is this true? In this case 
 If the statement in parenthesis is true then the code in the curly braces is run. If the statement is false then the code in the curly braces is skipped.
 
 You may also have noticed that the “if” line does not end in a semi-colon. This is true of any line that is immediately followed by a set of curly braces. You’ll notice neither setup nor loop are followed by semi-colons either.
+[![YouTube Thumbnail](if_yt.png)](https://youtu.be/xNfma0XAM6I)
+### Other stuff to know:
+
+We could have used this code instead
+```
+if (ledPin == 8)
+  {
+    ledPin = 13;
+  }
+  ```
+In this case it is asking if ledPin equals 8. We must use double equal sign to ask do these two equal each other. One of the most common mistakes is to use a single equal sign here. The single equal sign will not ask the questions is ledPin equal to 8. It will instead change the value of ledPin to be 8.
+
+## Comparison Operators
+
+In the table below are the other comparison operators you can use with an if statement.
