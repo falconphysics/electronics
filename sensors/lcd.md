@@ -1,6 +1,6 @@
 # Using your LCD with Arduino
 
-![LCD wired to Arduino](images/lcd_arduino.png)
+![LCD wired to Arduino](images/lcdArduino.png)
 
 The Library you need for your LCD is included with Arduino. You should open File - Examples - LiquidCrystal - HelloWorld
 
