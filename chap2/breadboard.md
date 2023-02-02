@@ -1,10 +1,10 @@
 # 2.3 - Using a Breadboard with Arduino
 
-[![Youtube Snapshot](breabboard_yt.png)](https://youtu.be/i-iP6Jo3xjo)
+[![Youtube Snapshot](breadboard_yt.png)](https://youtu.be/i-iP6Jo3xjo)
 
 In this lesson we will set up our breadboard for maximum utility with Arduino. Once set up you can leave it together this way for the rest of this course.
 
-[Breadboard with Arduino](plain-bb.png)
+![Breadboard with Arduino](plain-bb.png)
 
 The process is pretty straight forward. With the breadboards we use in class you will attach wires to the side rails. 5V goes to the red line and Gnd goes to the blue line. Then you need a wire to connect the red rail on one side to the red on the other and another wire to connect blue to blue. Once done your breadboard is ready to go. All of the circuit pictures used in this course will assume this basic set up.
 
