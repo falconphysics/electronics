@@ -14,7 +14,7 @@ int ledPin = 13;
 int sensorValue = 0;
 
 void setup() {
-  // declare the ledPin as an OUTPUT:
+ 
 
 }
 
