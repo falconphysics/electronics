@@ -6,6 +6,7 @@ This is a collection of resources for a class that I teach. It is currently bein
 - [Chapter 3](chap3/chap3_intro.md) - Control Structures
 - [Chapter 4](chap4/chap4_intro.md) - Serial Communication and Digital Input
 - [Chapter 5](chap5/chap5_intro.md) - Project - Show me what you know
+- [Chapter 6](chap6/chap6_intro.md) - Analog Data and Sensors
 
 ## Extra Stuff
 - [Sensors and Such](sensors)
