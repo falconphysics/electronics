@@ -3,7 +3,7 @@ So far we’ve only been dealing with digital data. We have on or off, pressed o
 [![YouTube Thumbnail](avd_yt.png)](https://youtu.be/kwuF4gJPFmM)
 
 ## Work through the following:
-- Introduction to Fading LEDs
-- Use Arrays to sequence the Fading Pins
+- [Introduction to Fading LEDs](fading.md)
+- [Use Arrays to sequence the Fading Pins](arrays.md)
 - Analog Read and the Potentiometer
 - Have you seen the light?
