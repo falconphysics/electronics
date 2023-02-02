@@ -71,7 +71,7 @@ Can you explain how this code works?
 ### One more Thing: Color Mixing
 For a little fun go into the Black Case labeled “Special Components” and find an RGB LED. These are LEDs with four legs.
 
-[RGB LED wiring](rgbLED.jpeg)
+![RGB LED wiring](rgbLED.jpeg)
 
 These are really three LEDs in one: red, green, and blue (hence the RGB). The longest lead is the negative (GND). I recommend bending the GND lead slightly and then putting it in the breadboard as shown. Since this is three LEDs you will need three resistors.
 
