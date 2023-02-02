@@ -21,6 +21,7 @@ void loop() {
 }
 ```
 [![YouTube Thumbnail](while_yt.png)](https://youtu.be/NpMEPx3sPbI)
+
 Overall, this sketch is very similar to the “If Loop” in our last lesson. It relies on a new function, however.
 ```
 while (ledPin >= 9)
