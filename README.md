@@ -5,6 +5,7 @@ This is a collection of resources for a class that I teach. It is currently bein
 - [Chapter 2](chap2/chap2_intro.md) - Introduction to Arduino
 - [Chapter 3](chap3/chap3_intro.md) - Control Structures
 - [Chapter 4](chap4/chap4_intro.md) - Serial Communication and Digital Input
+- [Chapter 5](chap5/chap5_intro.md) - Project - Show me what you know
 
 ## Extra Stuff
 - [Sensors and Such](sensors)
