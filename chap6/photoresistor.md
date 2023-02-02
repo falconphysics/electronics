@@ -3,11 +3,11 @@ This is where we can add other cool sensors to our Arduino. Remember analogRead 
 
 Photresistors change value depending on light level, while thermistors change based on temperature. Both can be used in the same way. The circuit to the right shows the circuit diagram you could use with either of these. You’ll notice that there is a variable resistor and a fixed resistor both hooked up to your analog pin. For a fixed resistor try 10k ohms. You can find photoresists in the Black Case labeled “Sensors”.
 
-![Photo of Photoresistors](photo_photo.jpg)
+![Photo of Photoresistors](images/photo_photo.jpg)
 
 The circuit below is virtually the same one we used for the potentiometer circuit. Again, we need an LED in digital pin 13. Set up the Arduino with the circuit and the program and answer the questions below.
 
-![Arduino with Photoresisotr](PhotoResistor.png)
+![Arduino with Photoresisotr](images/PhotoResistor.png)
 ```
 int sensorPin = A2;    
 int ledPin = 13;

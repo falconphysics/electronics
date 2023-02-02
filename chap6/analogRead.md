@@ -1,13 +1,13 @@
 # Chapter 6.3 - ANALOG READ AND THE POTENTIOMETER
 A potentiometer is a variable resistor. By twisting the knob we can change the value of resistance. For more on the inner workings of a variable resistor check out [this description](https://www.bcae1.com/potentio.htm), or watch this video:
 
-[![YouTube Thumbnail](pot_yt.png)](https://youtu.be/gGzP_4_LPjY)
+[![YouTube Thumbnail](images/pot_yt.png)](https://youtu.be/gGzP_4_LPjY)
 
 Here’s the Analog Input sketch from the Examples in the Sketchbook. For this circuit you need an LED in pin 13 (as we’ve done before) and a potentiometer (any size) in analog pin 2. To wire up the potentiometer you connect the center lead to analog pin 2. The two sides get hooked to power. One side goes to positive volts and the other goes to the ground. 
 
-![Potentiometer Photo in Breadboard](pot.jpg)
+![Potentiometer Photo in Breadboard](images/pot.jpg)
 
-![Potentiometer in Breadboard](VariableResistor.png)
+![Potentiometer in Breadboard](images/VariableResistor.png)
 ```
 int sensorPin = A2;    
 int ledPin = 13;

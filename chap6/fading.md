@@ -1,7 +1,7 @@
 # CHAPTER 6.1 - FADING LEDS
-[![YouTube Thumbnail](fading_yt.png)](https://youtu.be/dn26xGw4GLQ)
+[![YouTube Thumbnail](images/fading_yt.png)](https://youtu.be/dn26xGw4GLQ)
 
-![Arduino with LED](Fading-Breadboard.png)
+![Arduino with LED](images/Fading-Breadboard.png)
 
 PWM stands for Pulse Width Modulation. We can use this to simulate an analog output. This is not really an analog output, but a digital approximation of analog. Basically it sends signals of varying lengths causing our led to be on and off for varying lengths of time… What the heck is that supposed to mean? Basically we flash an LED very fast, so fast we can’t tell it’s flashing. The more time that is spent “off” the dimmer it will appear to our eyes. Not all pins are capable of PWM. The pins that are, are marked with either a ~ or PWM and are pins: 3, 5, 6, 9, 10, 11.
 
@@ -71,7 +71,7 @@ Can you explain how this code works?
 ### One more Thing: Color Mixing
 For a little fun go into the Black Case labeled “Special Components” and find an RGB LED. These are LEDs with four legs.
 
-![RGB LED wiring](rgbLED.jpeg)
+![RGB LED wiring](images/rgbLED.jpeg)
 
 These are really three LEDs in one: red, green, and blue (hence the RGB). The longest lead is the negative (GND). I recommend bending the GND lead slightly and then putting it in the breadboard as shown. Since this is three LEDs you will need three resistors.
 

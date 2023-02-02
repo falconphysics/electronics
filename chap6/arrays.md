@@ -1,5 +1,5 @@
 # CHAPTER 6.2 - ARRAYS
-[![YouTube Thumbnail](array_yt.png)](https://youtu.be/Br8h5r_yqJQ)
+[![YouTube Thumbnail](images/array_yt.png)](https://youtu.be/Br8h5r_yqJQ)
 
 The code below will sequence the fading LEDs one after the next. It uses for loops inside of another for loop. In this case the array is named “woot”. This could be any word, just like other variable names.
 ```
