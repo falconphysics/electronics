@@ -1,0 +1,59 @@
+# 3.1 – SEQUENCE LEDS WITH IF
+![Arduino with 5 LEDs](Arduino-5LEDs.png)
+
+Let’s say you want to sequence LEDs, that is to say turn them on and off one after the other, but you’re lazy. You did this in an earlier lesson but your sketch had a lot of repetition. As it turns out, computers are great at repetition. They can do the same thing over and over again while each time changing one thing. Create a circuit with LEDs in pins 9-13. Don’t forget you’ll need a resistor for each LED.
+
+In this sketch we will let our Arduino do the hard work for us. The Arduino really is a computer, so we’ll let it do some repetitive calculations. Load this sketch on your Arduino and see what happens. Hit the reset button on your board to run it again.
+```
+int ledPin = 13;
+
+void setup() {
+}
+
+void loop() {
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
+  delay(1000);
+  ledPin = ledPin - 1;  
+}
+```
+This sketch uses no new functions. Everything we’re doing here we’ve done in previous lessons. One of the reasons we use variables when we do a line of code like, digitalWrite (ledPin, HIGH); is so that we can change its value if we need to.
+```
+  ledPin = ledPin - 1;
+  ```
+This line of code does just what it appears to say. However, it can appear confusing if you think about it in the math sense, but this is not an algebraic expression. In plane english this says, “Set the new value of ledPin to be the old value of ledPin minus one.”
+
+So with ledPin=ledPin-1 in our program the value of ledPin will decrease by one each time through the void loop(). The first time through ledPin is 13 so the LED in pin 13 will light up and then go out. We then subtract one and ledPin is given the value of 12, causing the LED in 12 to go on and then off, and so on. After a few times through it will be lower than our lowest pin and in fact will eventually be a negative number unless we do something about it!
+```
+int ledPin = 13;
+
+void setup() {
+}
+
+void loop() {
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, HIGH);
+  delay(1000);
+  digitalWrite(ledPin, LOW);
+  delay(1000);
+  ledPin = ledPin - 1;
+  if (ledPin < 9)
+  {
+    ledPin = 13;
+  }
+}
+```
+We’ve added a new bit here that will allow the LED sequence start over:
+```
+  if (ledPin < 9)
+  {
+    ledPin = 13;
+  }
+  ```
+This is an “if” function. It asks the questions, is this true? In this case it is asking if ledPin is less than 9.
+
+If the statement in parenthesis is true then the code in the curly braces is run. If the statement is false then the code in the curly braces is skipped.
+
+You may also have noticed that the “if” line does not end in a semi-colon. This is true of any line that is immediately followed by a set of curly braces. You’ll notice neither setup nor loop are followed by semi-colons either.
