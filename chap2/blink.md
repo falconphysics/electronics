@@ -2,7 +2,7 @@
 ## Introduction
 
 When you plug in a new Arduino for the first time there is a light on the board that starts to flash. The Arduino is running a program that was pre-loaded into memory. As soon as it is powered up the Arduino will run whatever program is already in it’s memory. For our first programming task we are going to change this program.
-[![Link to YouTube Video](https://github.com/falconphysics/electronics/blob/main/chap2/Screen%20Shot%202023-01-31%20at%208.13.09%20AM.png)](https://www.youtube.com/watch?v=ap8lc19qhoo&embeds_euri=http%3A%2F%2Fwww.highschoolmaker.com%2F&feature=emb_imp_woyt)
+[![Link to YouTube Video](images/Screen%20Shot%202023-01-31%20at%208.13.09%20AM.png)](https://www.youtube.com/watch?v=ap8lc19qhoo&embeds_euri=http%3A%2F%2Fwww.highschoolmaker.com%2F&feature=emb_imp_woyt)
 ## Getting Started
 
 Arduino programs are called Sketches. The Arduino was created to help make it easier for artists to incorporate electronics into their projects. Sketch was adopted to make the whole process less intimidating.
@@ -99,7 +99,7 @@ The function pinMode has two arguments. The first is a number that corresponds t
 
 As it turns out, pin 13 is also tied to an LED that is mounted on the board. We’ll just look at this LED. In the next lesson we’ll learn how to add an external LED.
 
-![Arduino showing Blinking LED](ArduinoLED.png)
+![Arduino showing Blinking LED](images/ArduinoLED.png)
 
 There are two other functions to note in this sketch, digitalWrite and delay. Like pinMode, digital Write has two arguments. The first argument is the number of one of the digital pins. The second argument must either be HIGH or LOW. If set to HIGH the pin on the Arduino will output +5 volts, when set to LOW it will act as a Ground (negative). digitalWrite(led, HIGH) will turn on the LED attached to pin 13. digitalWrite(led, LOW) will turn the LED off.
 
