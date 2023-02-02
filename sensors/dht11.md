@@ -2,6 +2,8 @@
 
 You will need to download and install a library to work with this sensor. In the Arduino IDE go to the "Tools Menu - Managle Libraries". Search for and install "DFRobot_DHT11" 
 
+The sensor defaults to Celcius. The code below includes a conversion to Fahrenheit.
+
 ![Arduino with DHT11 wired](images/Arduino_DHT11.png)
 
 ```
