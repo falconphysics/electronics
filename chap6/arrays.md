@@ -33,6 +33,6 @@ void loop() {
   
 }
 ```
-###Time to Play:
+### Time to Play:
 - Incorporate a push button in some way.
 - Change it so that the next LED is starting to get brighter while the current one is getting dimmer
