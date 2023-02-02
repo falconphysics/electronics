@@ -5,5 +5,5 @@ So far we’ve only been dealing with digital data. We have on or off, pressed o
 ## Work through the following:
 - [Introduction to Fading LEDs](fading.md)
 - [Use Arrays to sequence the Fading Pins](arrays.md)
-- Analog Read and the Potentiometer
-- Have you seen the light?
+- [Analog Read and the Potentiometer](analogRead.md)
+- [Have you seen the light?](photoresistor.md)
