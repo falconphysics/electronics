@@ -1,0 +1,5 @@
+{
+    "git.allowNoVerifyCommit": false,
+    "git.autofetch": true,
+    "git.confirmEmptyCommits": true
+}

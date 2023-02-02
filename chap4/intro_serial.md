@@ -4,7 +4,7 @@ In this lesson we’ll learn how to use the Serial Library to communicate from t
 
 For this lesson we won’t need the breadboard. You should leave it all set up with wires and LEDs attached, but you can disconnect it from your Arduino if you like. We’ll focus instead on the RX and TX LEDs on your Arduino.
 
-![Arduino showing TX and RX LEDs](TX-and-RX.jpeg)
+![Arduino showing TX and RX LEDs](images/TX-and-RX.jpeg)
 
 ## What is a Library?
 
@@ -87,7 +87,7 @@ It looks like not much is going on here. Somewhat disappointing since we had so 
 
 Lucky for us, there’s a serial monitor built into the Arduino software!
 
-![Showing where the Serial Monitor is in the IDE](serial_monitor.png)
+![Showing where the Serial Monitor is in the IDE](images/serial_monitor.png)
 
 When you click Serial Monitor (top right corner of Arduino IDE) a new window will open and your Arduino should reset. Your text will now appear in the Serial Monitor. You can make it print again my pressing the reset button on your Arduino.
 

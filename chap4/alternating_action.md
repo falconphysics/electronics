@@ -1,5 +1,5 @@
 # 4.3 – Alternating Action
-![Arduino with button](pushbutton-no-led.png)
+![Arduino with button](images/pushbutton-no-led.png)
 
 Let’s say we wanted to create a counter so that counts how many times we press a button. We might try the code below:
 ```

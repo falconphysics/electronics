@@ -1,5 +1,5 @@
 # 4.2 – DIGITAL INPUT TUTORIAL
-![Arduino with button](pushbutton-no-led.png)
+![Arduino with button](images/pushbutton-no-led.png)
 
 Pins 1-13 can be used as inputs or outputs. So far we’ve only used them as outputs. You set the pin to be an input using pinMode just as we do when making a pin an output.
 
@@ -22,7 +22,7 @@ void loop() {
   delay(100);
 }
 ```
-[![YouTube Thumbnail](button_yt.png)](https://youtu.be/cRIQmmQJW4M)
+[![YouTube Thumbnail](images/button_yt.png)](https://youtu.be/cRIQmmQJW4M)
 
 Next try out the code below. Here we expand on the if by adding an else. Now if the if is false it will execute the code in the curly braces after the else. The else code will be skipped if the if was true.
 ```
