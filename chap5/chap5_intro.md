@@ -9,7 +9,7 @@ You must take what you’ve learned so far and create a simple game. There are m
 - Use Push-Buttons for Digital Input
 - Know when a button was pressed or released
 - Count Button Presses
-- Games at a minimum should offer a way to loose, might offer a way to win, should keep score, might get harder as you play.
+- Games at a minimum should offer a way to lose, might offer a way to win, should keep score, might get harder as you play.
 
 After creating your game take pictures of it and a video of it in action. Upload the video to YouTube. Create a blog post presenting your game. Your post must include a description of your game, your code, pictures and your video from YouTube must be embedded in your post. When done paste the link to your post in Schoology.
 
