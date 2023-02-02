@@ -4,6 +4,7 @@ This is a collection of resources for a class that I teach. It is currently bein
 ## Sequenced Content
 - [Chapter 2](chap2/chap2_intro.md) - Introduction to Arduino
 - [Chapter 3](chap3/chap3_intro.md) - Control Structures
+- [Chapter 4](chap4/chap4_intro.md) - Serial Communication and Digital Input
 
 ## Extra Stuff
 - [Sensors and Such](sensors)
