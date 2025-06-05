@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code! Programming with p5.js - Chapter 1: Getting Started</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+        }
+        
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            line-height: 1.4;
+            margin: 20px 0;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #abb2bf;
+        }
+        
+        /* Syntax highlighting */
+        .keyword {
+            color: #c678dd;
+        }
+        
+        .function {
+            color: #61afef;
+        }
+        
+        .number {
+            color: #d19a66;
+        }
+        
+        .comment {
+            color: #5c6370;
+            font-style: italic;
+        }
+        
+        .string {
+            color: #98c379;
+        }
+        
+        .alert {
+            background-color: #fff3cd;
+            border: 1px solid #ffecd1;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .tip {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .error-example {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .exercise {
+            background-color: #e8f4ff;
+            border: 1px solid #b8e0ff;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .exercise h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+        }
+        
+        .coordinate-system {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre;
+            margin: 20px 0;
+        }
+        
+        strong {
+            color: #2c3e50;
+        }
+        
+        em {
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Code! Programming with p5.js</h1>
+        <h2>A High School Introduction to Creative Coding</h2>
+        <p><em>Accompanying The Coding Train video series by Daniel Shiffman</em></p>
+        
+        <hr>
+        
+        <h1>Chapter 1: Getting Started</h1>
+        
+        <h2>1.1 Welcome Aboard the Coding Train! 🚂</h2>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/HerCR8bw_GE" title="1.1: Code! Programming for Beginners with p5.js" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <p>Hello, hello! Welcome to the wonderful world of programming! I'm so excited you're here! Are you ready to make beautiful, interactive, creative things with code? Of course you are! That's why you're here!</p>
+        
+        <p>But wait, what even IS programming? Programming is writing instructions for a computer to follow. Think of it like writing a recipe, but instead of making cookies, you're making art, animations, games, and interactive experiences! The computer follows your instructions exactly - which is both amazing and sometimes frustrating when it does EXACTLY what you told it to do (even when that's not what you meant!).</p>
+        
+        <h3>What is p5.js?</h3>
+        
+        <p>p5.js is a JavaScript library that makes it super easy and fun to create graphics, animations, and interactive experiences. But what's a library? Think of a library like a toolbox - someone else has built a bunch of useful tools (functions) that you can use without having to build them yourself. Want to draw a circle? There's a tool for that! Want to make something move? There's a tool for that too!</p>
+        
+        <p>p5.js was created by Lauren McCarthy and is based on Processing, a programming language designed by Casey Reas and Ben Fry. The goal? To make coding accessible to artists, designers, educators, and beginners. It's all about making coding visual and immediate - you write code and instantly see the results on your screen!</p>
+        
+        <h3>What You'll Learn in This Chapter</h3>
+        <ul>
+            <li>How to use the p5.js Web Editor</li>
+            <li>The structure of a p5.js sketch with <code>setup()</code> and <code>draw()</code></li>
+            <li>Drawing basic shapes (circles, rectangles, lines, triangles)</li>
+            <li>Understanding the coordinate system</li>
+            <li>Adding color to your creations</li>
+            <li>Reading and understanding error messages</li>
+        </ul>
+        
+        <h2>1.2 The p5.js Web Editor - Your New Best Friend</h2>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/MXs1cOlidWs" title="1.2: p5.js Web Editor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <p>First things first! Let's get you set up with the p5.js Web Editor. This is where the magic happens!</p>
+        
+        <h3>Getting Started with the Editor</h3>
+        
+        <ol>
+            <li>Open your web browser (Chrome, Firefox, Safari, Edge - they all work!)</li>
+            <li>Go to <a href="https://editor.p5js.org/">https://editor.p5js.org/</a></li>
+            <li>That's it! No downloads, no installations, no "configuring your development environment" nonsense. Just pure, unadulterated creative coding joy!</li>
+        </ol>
+        
+        <h3>Understanding the Interface</h3>
+        
+        <p>When you first open the editor, you'll see several parts:</p>
+        
+        <p><strong>The Code Area (Left Side):</strong> This is where you write your code. You'll see some starter code that looks like this:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+}</code></pre>
+        
+        <p><strong>The Preview Area (Right Side):</strong> This shows what your code creates. Right now, it's just a gray square, but soon it'll be full of your amazing creations!</p>
+        
+        <p><strong>The Console (Bottom):</strong> This is where error messages appear. Think of it as the place where the computer talks back to you when something goes wrong.</p>
+        
+        <p><strong>The Toolbar (Top):</strong></p>
+        <ul>
+            <li><strong>Play Button (▶️):</strong> Runs your code</li>
+            <li><strong>Stop Button (⏹️):</strong> Stops your code</li>
+            <li><strong>Auto-refresh checkbox:</strong> When checked, your sketch updates automatically as you type</li>
+        </ul>
+        
+        <h3>Your First Sketch</h3>
+        
+        <p>Let's understand that starter code:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+}</code></pre>
+        
+        <p>This is the basic structure of EVERY p5.js sketch. Let's break it down:</p>
+        
+        <p><strong><code>function setup()</code>:</strong> This function runs ONCE when your program starts. It's where you set things up (hence the name!). Right now, it's creating a canvas.</p>
+        
+        <p><strong><code>createCanvas(400, 400)</code>:</strong> This creates a drawing area that's 400 pixels wide and 400 pixels tall. Think of pixels as tiny dots on your screen - the more pixels, the bigger your canvas!</p>
+        
+        <p><strong><code>function draw()</code>:</strong> This function runs OVER AND OVER, approximately 60 times per second! It's constantly drawing to your canvas.</p>
+        
+        <p><strong><code>background(220)</code>:</strong> This fills the entire canvas with a color. The number 220 represents a shade of gray (we'll learn more about colors soon!).</p>
+        
+        <p>Hit the play button (▶️) and... LOOK! You made a gray square! I know, I know, not the most exciting thing in the world, but hey, it's a start!</p>
+        
+        <h2>1.3 Let's Draw Some Shapes!</h2>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/c3TeLi6Ns1E" title="1.3: Shapes & Drawing" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <p>Gray rectangles are cool and all, but let's make something more exciting! Let's draw some shapes!</p>
+        
+        <h3>Drawing a Circle</h3>
+        
+        <p>Delete everything in the draw function and add this:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>);
+}</code></pre>
+        
+        <p>Boom! A circle! But what do those numbers mean?</p>
+        
+        <p>The <code>circle()</code> function needs three pieces of information:</p>
+        <ol>
+            <li><strong>x position:</strong> How far from the left edge (200 pixels)</li>
+            <li><strong>y position:</strong> How far from the top edge (200 pixels)</li>
+            <li><strong>diameter:</strong> How wide the circle is (100 pixels)</li>
+        </ol>
+        
+        <p>So <code>circle(200, 200, 100)</code> means: "Draw a circle at position (200, 200) with a diameter of 100 pixels."</p>
+        
+        <div class="tip">
+            <strong>Try it!</strong> Change the numbers! What happens if you change the first 200 to 100? What about making the diameter 200?
+        </div>
+        
+        <h3>Understanding the Coordinate System</h3>
+        
+        <p>Wait, wait, wait. "From the left?" "From the top?" Let me explain how the coordinate system works in p5.js!</p>
+        
+        <p>In p5.js (and most computer graphics), the coordinate system starts at the top-left corner:</p>
+        
+        <div class="coordinate-system">(0,0) ---------- (400,0)
+  |                |
+  |                |
+  |    (200,200)   |
+  |                |
+  |                |
+(0,400) -------- (400,400)</div>
+        
+        <ul>
+            <li>The origin (0,0) is at the TOP-LEFT corner</li>
+            <li>X increases as you go RIGHT</li>
+            <li>Y increases as you go DOWN (this might feel backwards if you're used to math class!)</li>
+        </ul>
+        
+        <p>Let's visualize this:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="comment">// Top-left corner</span>
+  <span class="function">circle</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>);
+  
+  <span class="comment">// Top-right corner</span>
+  <span class="function">circle</span>(<span class="number">400</span>, <span class="number">0</span>, <span class="number">50</span>);
+  
+  <span class="comment">// Bottom-left corner</span>
+  <span class="function">circle</span>(<span class="number">0</span>, <span class="number">400</span>, <span class="number">50</span>);
+  
+  <span class="comment">// Bottom-right corner</span>
+  <span class="function">circle</span>(<span class="number">400</span>, <span class="number">400</span>, <span class="number">50</span>);
+  
+  <span class="comment">// Center</span>
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">50</span>);
+}</code></pre>
+        
+        <div class="alert">
+            <strong>Notice:</strong> The circles at the corners are partially cut off! That's because the x and y positions refer to the CENTER of the circle!
+        </div>
+        
+        <h3>Drawing Rectangles</h3>
+        
+        <p>Let's draw a rectangle:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  <span class="function">rect</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">150</span>, <span class="number">100</span>);
+}</code></pre>
+        
+        <p>The <code>rect()</code> function needs four pieces of information:</p>
+        <ol>
+            <li><strong>x position:</strong> X coordinate of the top-left corner (50 pixels from left)</li>
+            <li><strong>y position:</strong> Y coordinate of the top-left corner (50 pixels from top)</li>
+            <li><strong>width:</strong> How wide the rectangle is (150 pixels)</li>
+            <li><strong>height:</strong> How tall the rectangle is (100 pixels)</li>
+        </ol>
+        
+        <div class="alert">
+            <strong>Important difference:</strong> Rectangles are positioned by their TOP-LEFT corner, while circles are positioned by their CENTER!
+        </div>
+        
+        <h3>Drawing Lines</h3>
+        
+        <p>Lines connect two points:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  <span class="function">line</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">350</span>, <span class="number">350</span>);
+}</code></pre>
+        
+        <p>The <code>line()</code> function needs four pieces of information:</p>
+        <ol>
+            <li><strong>x1:</strong> X coordinate of the first point (50)</li>
+            <li><strong>y1:</strong> Y coordinate of the first point (50)</li>
+            <li><strong>x2:</strong> X coordinate of the second point (350)</li>
+            <li><strong>y2:</strong> Y coordinate of the second point (350)</li>
+        </ol>
+        
+        <p>This draws a diagonal line from the top-left towards the bottom-right!</p>
+        
+        <h3>Drawing Triangles</h3>
+        
+        <p>Triangles are defined by three points:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  <span class="function">triangle</span>(<span class="number">200</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>);
+}</code></pre>
+        
+        <p>The <code>triangle()</code> function needs six pieces of information - the x and y coordinates of three points:</p>
+        <ol>
+            <li>First point: (200, 50) - top of the triangle</li>
+            <li>Second point: (100, 300) - bottom-left</li>
+            <li>Third point: (300, 300) - bottom-right</li>
+        </ol>
+        
+        <h3>More Shapes</h3>
+        
+        <p>Let's put multiple shapes together:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="comment">// Rectangle</span>
+  <span class="function">rect</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">75</span>);
+  
+  <span class="comment">// Circle</span>
+  <span class="function">circle</span>(<span class="number">250</span>, <span class="number">100</span>, <span class="number">80</span>);
+  
+  <span class="comment">// Line</span>
+  <span class="function">line</span>(<span class="number">50</span>, <span class="number">200</span>, <span class="number">150</span>, <span class="number">250</span>);
+  
+  <span class="comment">// Triangle</span>
+  <span class="function">triangle</span>(<span class="number">250</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">280</span>, <span class="number">300</span>, <span class="number">280</span>);
+}</code></pre>
+        
+        <h3>Order Matters!</h3>
+        
+        <div class="alert">
+            <strong>Important concept:</strong> Shapes are drawn in the order they appear in your code. Later shapes are drawn ON TOP of earlier shapes!
+        </div>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="comment">// Rectangle drawn first</span>
+  <span class="function">rect</span>(<span class="number">150</span>, <span class="number">150</span>, <span class="number">100</span>, <span class="number">100</span>);
+  
+  <span class="comment">// Circle drawn second (on top)</span>
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>);
+}</code></pre>
+        
+        <p>The circle appears on top of the rectangle because it's drawn after! Try swapping the order of the rect() and circle() lines. See what happens!</p>
+        
+        <h2>1.4 Adding Color - Let's Make It Pop!</h2>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/riiJTF5-N7c" title="1.4: Color" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <p>Gray is nice, but COLOR is where the party's at! Let's learn how to add color to our sketches.</p>
+        
+        <h3>Fill - Coloring the Inside</h3>
+        
+        <p>The <code>fill()</code> function sets the color inside shapes:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="function">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>);
+}</code></pre>
+        
+        <p>A red circle! But what do those three numbers mean?</p>
+        
+        <h3>Understanding RGB Colors</h3>
+        
+        <p>Colors in p5.js use the RGB color model:</p>
+        <ul>
+            <li><strong>R</strong>ed: How much red (0-255)</li>
+            <li><strong>G</strong>reen: How much green (0-255)</li>
+            <li><strong>B</strong>lue: How much blue (0-255)</li>
+        </ul>
+        
+        <p>Think of it like mixing colored lights:</p>
+        <ul>
+            <li><code>fill(255, 0, 0)</code> = Maximum red, no green, no blue = Pure red!</li>
+            <li><code>fill(0, 255, 0)</code> = No red, maximum green, no blue = Pure green!</li>
+            <li><code>fill(0, 0, 255)</code> = No red, no green, maximum blue = Pure blue!</li>
+        </ul>
+        
+        <p>What about other colors?</p>
+        <ul>
+            <li><code>fill(255, 255, 0)</code> = Red + Green = Yellow!</li>
+            <li><code>fill(255, 0, 255)</code> = Red + Blue = Magenta!</li>
+            <li><code>fill(0, 255, 255)</code> = Green + Blue = Cyan!</li>
+            <li><code>fill(255, 255, 255)</code> = All colors max = White!</li>
+            <li><code>fill(0, 0, 0)</code> = No colors = Black!</li>
+        </ul>
+        
+        <p>Let's try it:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="comment">// Red circle</span>
+  <span class="function">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);
+  <span class="function">circle</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">80</span>);
+  
+  <span class="comment">// Green circle</span>
+  <span class="function">fill</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>);
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">100</span>, <span class="number">80</span>);
+  
+  <span class="comment">// Blue circle</span>
+  <span class="function">fill</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>);
+  <span class="function">circle</span>(<span class="number">300</span>, <span class="number">100</span>, <span class="number">80</span>);
+  
+  <span class="comment">// Yellow rectangle</span>
+  <span class="function">fill</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>);
+  <span class="function">rect</span>(<span class="number">75</span>, <span class="number">200</span>, <span class="number">50</span>, <span class="number">50</span>);
+  
+  <span class="comment">// Magenta rectangle</span>
+  <span class="function">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>);
+  <span class="function">rect</span>(<span class="number">175</span>, <span class="number">200</span>, <span class="number">50</span>, <span class="number">50</span>);
+  
+  <span class="comment">// Cyan rectangle</span>
+  <span class="function">fill</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>);
+  <span class="function">rect</span>(<span class="number">275</span>, <span class="number">200</span>, <span class="number">50</span>, <span class="number">50</span>);
+}</code></pre>
+        
+        <h3>Grayscale Colors</h3>
+        
+        <p>If you use just one number instead of three, you get shades of gray:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="function">fill</span>(<span class="number">0</span>);      <span class="comment">// Black</span>
+  <span class="function">circle</span>(<span class="number">100</span>, <span class="number">200</span>, <span class="number">80</span>);
+  
+  <span class="function">fill</span>(<span class="number">127</span>);    <span class="comment">// Medium gray</span>
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">80</span>);
+  
+  <span class="function">fill</span>(<span class="number">255</span>);    <span class="comment">// White</span>
+  <span class="function">circle</span>(<span class="number">300</span>, <span class="number">200</span>, <span class="number">80</span>);
+}</code></pre>
+        
+        <h3>Stroke - Coloring the Outline</h3>
+        
+        <p>The <code>stroke()</code> function sets the outline color:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="function">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);      <span class="comment">// Red inside</span>
+  <span class="function">stroke</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>);    <span class="comment">// Blue outline</span>
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>);
+}</code></pre>
+        
+        <h3>Stroke Weight - Thickness of Lines</h3>
+        
+        <p>You can make outlines thicker or thinner:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="function">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);
+  <span class="function">stroke</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>);
+  <span class="function">strokeWeight</span>(<span class="number">5</span>);      <span class="comment">// Thick outline!</span>
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>);
+}</code></pre>
+        
+        <h3>No Fill and No Stroke</h3>
+        
+        <p>Sometimes you want just an outline or just a fill:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="comment">// Just outline, no fill</span>
+  <span class="function">noFill</span>();
+  <span class="function">stroke</span>(<span class="number">0</span>);
+  <span class="function">strokeWeight</span>(<span class="number">3</span>);
+  <span class="function">circle</span>(<span class="number">150</span>, <span class="number">200</span>, <span class="number">80</span>);
+  
+  <span class="comment">// Just fill, no outline</span>
+  <span class="function">noStroke</span>();
+  <span class="function">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);
+  <span class="function">circle</span>(<span class="number">250</span>, <span class="number">200</span>, <span class="number">80</span>);
+}</code></pre>
+        
+        <h3>Color Affects All Shapes After It</h3>
+        
+        <div class="alert">
+            <strong>Important:</strong> When you set a color, it applies to ALL shapes drawn after it until you change it again!
+        </div>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  
+  <span class="function">fill</span>(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>);  <span class="comment">// Set fill to red</span>
+  <span class="function">circle</span>(<span class="number">100</span>, <span class="number">100</span>, <span class="number">50</span>);
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">100</span>, <span class="number">50</span>);  <span class="comment">// Also red!</span>
+  
+  <span class="function">fill</span>(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>);  <span class="comment">// Change fill to green</span>
+  <span class="function">circle</span>(<span class="number">300</span>, <span class="number">100</span>, <span class="number">50</span>);  <span class="comment">// Now it's green</span>
+  
+  <span class="function">rect</span>(<span class="number">100</span>, <span class="number">200</span>, <span class="number">50</span>, <span class="number">50</span>);  <span class="comment">// This is also green!</span>
+}</code></pre>
+        
+        <h3>Putting It All Together</h3>
+        
+        <p>Let's make a colorful drawing:</p>
+        
+        <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">135</span>, <span class="number">206</span>, <span class="number">235</span>);  <span class="comment">// Sky blue</span>
+  
+  <span class="comment">// Sun</span>
+  <span class="function">fill</span>(<span class="number">255</span>, <span class="number">223</span>, <span class="number">0</span>);
+  <span class="function">noStroke</span>();
+  <span class="function">circle</span>(<span class="number">350</span>, <span class="number">50</span>, <span class="number">60</span>);
+  
+  <span class="comment">// House body</span>
+  <span class="function">fill</span>(<span class="number">178</span>, <span class="number">34</span>, <span class="number">34</span>);
+  <span class="function">rect</span>(<span class="number">150</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">100</span>);
+  
+  <span class="comment">// Roof</span>
+  <span class="function">fill</span>(<span class="number">101</span>, <span class="number">67</span>, <span class="number">33</span>);
+  <span class="function">triangle</span>(<span class="number">150</span>, <span class="number">200</span>, <span class="number">250</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">150</span>);
+  
+  <span class="comment">// Door</span>
+  <span class="function">fill</span>(<span class="number">101</span>, <span class="number">67</span>, <span class="number">33</span>);
+  <span class="function">rect</span>(<span class="number">190</span>, <span class="number">250</span>, <span class="number">20</span>, <span class="number">50</span>);
+  
+  <span class="comment">// Windows</span>
+  <span class="function">fill</span>(<span class="number">135</span>, <span class="number">206</span>, <span class="number">250</span>);
+  <span class="function">stroke</span>(<span class="number">0</span>);
+  <span class="function">strokeWeight</span>(<span class="number">2</span>);
+  <span class="function">rect</span>(<span class="number">165</span>, <span class="number">220</span>, <span class="number">25</span>, <span class="number">25</span>);
+  <span class="function">rect</span>(<span class="number">210</span>, <span class="number">220</span>, <span class="number">25</span>, <span class="number">25</span>);
+  
+  <span class="comment">// Grass</span>
+  <span class="function">fill</span>(<span class="number">34</span>, <span class="number">139</span>, <span class="number">34</span>);
+  <span class="function">noStroke</span>();
+  <span class="function">rect</span>(<span class="number">0</span>, <span class="number">300</span>, <span class="number">400</span>, <span class="number">100</span>);
+}</code></pre>
+        
+        <p>Look at that! You just drew a colorful house scene with code!</p>
+        
+        <h2>1.5 Errors and the Console - Don't Panic!</h2>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/LuGsp5KeJMM" title="1.5: Errors & Console" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        
+        <p>Let's be real for a second. You're going to make mistakes. I make mistakes. Everyone makes mistakes! And that's TOTALLY OKAY! In fact, errors are your friends because they help you learn!</p>
+        
+        <h3>Common Errors</h3>
+        
+        <p>Let's intentionally make some mistakes to see what happens:</p>
+        
+        <h4>Typo in Function Name</h4>
+        
+        <div class="error-example">
+            <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  <span class="function">cirle</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>);  <span class="comment">// Oops! Misspelled 'circle'</span>
+}</code></pre>
+            
+            <p><strong>Error message:</strong> <code>cirle is not defined</code></p>
+            
+            <p>The computer doesn't know what <code>cirle</code> is because the function is called <code>circle</code>!</p>
+        </div>
+        
+        <h4>Missing Comma</h4>
+        
+        <div class="error-example">
+            <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  <span class="function">circle</span>(<span class="number">200</span> <span class="number">200</span>, <span class="number">100</span>);  <span class="comment">// Oops! Forgot comma between 200 and 200</span>
+}</code></pre>
+            
+            <p><strong>Error message:</strong> <code>Unexpected number</code></p>
+            
+            <p>The computer is confused because it expected a comma but found another number!</p>
+        </div>
+        
+        <h4>Missing Parenthesis</h4>
+        
+        <div class="error-example">
+            <pre><code><span class="keyword">function</span> <span class="function">setup</span>() {
+  <span class="function">createCanvas</span>(<span class="number">400</span>, <span class="number">400</span>);
+}
+
+<span class="keyword">function</span> <span class="function">draw</span>() {
+  <span class="function">background</span>(<span class="number">220</span>);
+  <span class="function">circle</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>;  <span class="comment">// Oops! Forgot closing parenthesis</span>
+}</code></pre>
+            
+            <p><strong>Error message:</strong> <code>Unexpected token ';'</code></p>
+            
+            <p>The computer expected a closing parenthesis but found a semicolon instead!</p>
+        </div>
+        
+        <h3>Reading Error Messages</h3>
+        
+        <p>p5.js has friendly error messages! They usually tell you:</p>
+        <ul>
+            <li>What went wrong</li>
+            <li>Which line has the problem</li>
+            <li>Sometimes even suggestions for fixing it!</li>
+        </ul>
+        
+        <p>For example:</p>
+        <div class="error-example">
+            <code>🌸 p5.js says: It looks like there might be a typo in your code.
+"cirle" is not defined. Did you mean "circle"?</code>
+        </div>
+        
+        <p>How helpful is that?!</p>
+        
+        <h3>The Console</h3>
+        
+        <p>The console at the bottom of the editor shows:</p>
+        <ul>
+            <li>Error messages (in red)</li>
+            <li>Any messages from your program (we'll learn about this later)</li>
+            <li>Helpful hints from p5.js</li>
+        </ul>
