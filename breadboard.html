@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.3 — Using a Breadboard · Electronics with Microcontrollers</title>
+<meta name="description" content="A hands-on textbook for Pre-Engineering: Electronics with Microcontrollers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="kicker">Pre-Engineering</span>
+      <h1>Electronics with <span>Microcontrollers</span></h1>
+    </a>
+    <nav class="nav">
+<div class="grp">Sequenced Content</div>
+<a class="sec " href="ch2.html">Chapter 2 · Introduction to Arduino</a>
+<a class="sub " href="blink.html">2.2 — Blink</a>
+<a class="sub active" href="breadboard.html">2.3 — Using a Breadboard</a>
+<a class="sec " href="ch3.html">Chapter 3 · Controlling the Flow</a>
+<a class="sub " href="sequence-if.html">3.1 — Sequence with If</a>
+<a class="sub " href="sequence-while.html">3.2 — Sequence with While</a>
+<a class="sub " href="sequence-for.html">3.3 — Sequence with For</a>
+<a class="sec " href="ch4.html">Chapter 4 · Digital Input &amp; Serial</a>
+<a class="sub " href="intro-serial.html">4.1 — Serial Communication</a>
+<a class="sub " href="digital-input.html">4.2 — Digital Input</a>
+<a class="sub " href="alternating-action.html">4.3 — Alternating Action</a>
+<a class="sub " href="interesting-button.html">4.4 — Interesting Push Button</a>
+<a class="sec " href="ch5.html">Chapter 5 · Project — Make a Game</a>
+<a class="sec " href="ch6.html">Chapter 6 · Analog Data &amp; Sensors</a>
+<a class="sub " href="fading.html">6.1 — Fading LEDs</a>
+<a class="sub " href="arrays.html">6.2 — Arrays</a>
+<a class="sub " href="analog-read.html">6.3 — Analog Read &amp; Potentiometer</a>
+<a class="sub " href="photoresistor.html">6.4 — Photoresistor</a>
+<div class="grp">Extra Material</div>
+<a class="sec " href="sensors.html">Appendix · Sensors &amp; Such</a>
+<a class="sub " href="ultrasonic.html">Ultrasonic Rangefinder</a>
+<a class="sub " href="dht11.html">DHT11 Temp &amp; Humidity</a>
+<a class="sub " href="lcd.html">LCD Display</a>
+<a class="sub " href="joystick.html">Joystick Module</a>
+</nav>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰ Menu</button>
+      <span class="t-title">Electronics with Microcontrollers</span>
+    </div>
+    <div class="content"><div class="crumb">Chapter 2<span class="dot">/</span>Introduction to Arduino</div><h1 id="23-using-a-breadboard-with-arduino">2.3 - Using a Breadboard with Arduino</h1>
+<p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/i-iP6Jo3xjo" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></p>
+<p>In this lesson we will set up our breadboard for maximum utility with Arduino. Once set up you can leave it together this way for the rest of this course.</p>
+<p><img alt="Breadboard with Arduino" src="assets/img/chap2/plain-bb.png" /></p>
+<p>The process is pretty straight forward. With the breadboards we use in class you will attach wires to the side rails. 5V goes to the red line and Gnd goes to the blue line. Then you need a wire to connect the red rail on one side to the red on the other and another wire to connect blue to blue. Once done your breadboard is ready to go. All of the circuit pictures used in this course will assume this basic set up.</p>
+<p>Next we’ll need to add an external LED. LEDs have two legs, on most LEDs the shorter one is the negative lead. It is also important to note that LEDs will burn out if you put too much voltage through them. So you will almost always need to include a resistor. The exact size will vary with the specific LED and the voltage we’re using. When in doubt 1k ohm is a good default. For our LEDs and Arduino 220 or 330 ohms work just fine. <a href="https://www.allaboutcircuits.com/textbook/reference/chpt-2/resistor-color-codes/">Read this page</a> if you need to learn more about resistors and the resistor color code.. Now attach your resistor and LED to your Arduino, being sure that the short (negative) lead is attached to our negative power rail (or ground).</p>
+<p><img alt="Arduino with External LED" src="assets/img/chap2/Breadboard-with-LED.png" /></p>
+<p>Once you have your external LED flashing add a second one on a different pin. Don’t forget to declare a new variable for your new LED and set the new pin as an output. Then add a few more. Play a little, make them flash separately, then make them flash together.</p><div class="pager"><a class="prev" href="blink.html"><div class="lbl">Previous</div><div class="ttl">2.2 — Blink</div></a><a class="next" href="ch3.html"><div class="lbl">Next</div><div class="ttl">Controlling the Flow</div></a></div></div>
+  </div>
+</div>
+<script>
+  const sb=document.getElementById('sidebar'),sc=document.getElementById('scrim'),mb=document.getElementById('menuBtn');
+  function close(){sb.classList.remove('open');sc.classList.remove('show');}
+  if(mb){mb.onclick=()=>{sb.classList.toggle('open');sc.classList.toggle('show');};}
+  if(sc){sc.onclick=close;}
+  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=940)close();}));
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.2 — Digital Input · Electronics with Microcontrollers</title>
+<meta name="description" content="A hands-on textbook for Pre-Engineering: Electronics with Microcontrollers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="kicker">Pre-Engineering</span>
+      <h1>Electronics with <span>Microcontrollers</span></h1>
+    </a>
+    <nav class="nav">
+<div class="grp">Sequenced Content</div>
+<a class="sec " href="ch2.html">Chapter 2 · Introduction to Arduino</a>
+<a class="sub " href="blink.html">2.2 — Blink</a>
+<a class="sub " href="breadboard.html">2.3 — Using a Breadboard</a>
+<a class="sec " href="ch3.html">Chapter 3 · Controlling the Flow</a>
+<a class="sub " href="sequence-if.html">3.1 — Sequence with If</a>
+<a class="sub " href="sequence-while.html">3.2 — Sequence with While</a>
+<a class="sub " href="sequence-for.html">3.3 — Sequence with For</a>
+<a class="sec " href="ch4.html">Chapter 4 · Digital Input &amp; Serial</a>
+<a class="sub " href="intro-serial.html">4.1 — Serial Communication</a>
+<a class="sub active" href="digital-input.html">4.2 — Digital Input</a>
+<a class="sub " href="alternating-action.html">4.3 — Alternating Action</a>
+<a class="sub " href="interesting-button.html">4.4 — Interesting Push Button</a>
+<a class="sec " href="ch5.html">Chapter 5 · Project — Make a Game</a>
+<a class="sec " href="ch6.html">Chapter 6 · Analog Data &amp; Sensors</a>
+<a class="sub " href="fading.html">6.1 — Fading LEDs</a>
+<a class="sub " href="arrays.html">6.2 — Arrays</a>
+<a class="sub " href="analog-read.html">6.3 — Analog Read &amp; Potentiometer</a>
+<a class="sub " href="photoresistor.html">6.4 — Photoresistor</a>
+<div class="grp">Extra Material</div>
+<a class="sec " href="sensors.html">Appendix · Sensors &amp; Such</a>
+<a class="sub " href="ultrasonic.html">Ultrasonic Rangefinder</a>
+<a class="sub " href="dht11.html">DHT11 Temp &amp; Humidity</a>
+<a class="sub " href="lcd.html">LCD Display</a>
+<a class="sub " href="joystick.html">Joystick Module</a>
+</nav>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰ Menu</button>
+      <span class="t-title">Electronics with Microcontrollers</span>
+    </div>
+    <div class="content"><div class="crumb">Chapter 4<span class="dot">/</span>Digital Input &amp; Serial</div><h1 id="42-digital-input-tutorial">4.2 – DIGITAL INPUT TUTORIAL</h1>
+<p><img alt="Arduino with button" src="assets/img/chap4/pushbutton-no-led.png" /></p>
+<p>Pins 1-13 can be used as inputs or outputs. So far we’ve only used them as outputs. You set the pin to be an input using pinMode just as we do when making a pin an output.</p>
+<p>You will need to build the circuit shown. Pin 2 will be looking for an input of either HIGH or LOW. digitalRead looks to see whether we have positive or negative voltage on the pin of interest. This is called “reading the state of the pin”. If it is positive the state is HIGH or one, if negative it is LOW or zero. Technically you don’t need the 100 ohm resistor. It’s there to protect the Arduino chip from a short circuit.</p>
+<p>The size of the two resistors are not critical. They are a rough guide. The 10k resistor can be as small as 4.7k and there is really no maximum, but if it is too big the results can be unpredictable. The presence of the 10K resistor is critical, it is called a pull down resistor. There are three possible states an input can be: High (positive), Low (negative), or nothing. Unfortunately, the Arduino has only two choices, High or Low. If you leave out the pull down resistor the pin can never “see” Low and the results will be totally unpredictable. It might appear to work perfectly one moment and then suddenly not work. If you were to simply put a wire in for the 10k ohm resistor then you’d cause a short circuit any time you pressed the button.</p>
+<p>Try this code out:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">sensorValue</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">sensorValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">sensorValue</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/cRIQmmQJW4M" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></p>
+<p>Next try out the code below. Here we expand on the if by adding an else. Now if the if is false it will execute the code in the curly braces after the else. The else code will be skipped if the if was true.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">buttonPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">buttonState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">buttonPin</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">  </span><span class="n">buttonState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">buttonPin</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buttonState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Print &quot;Button Pressed&quot; to the Serial Monitor</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Print &quot;Waiting&quot; to the Serial Monitor</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="time-to-play">Time to Play</h3>
+<ul>
+<li>Swap the positions of the wire and the 10k resistor attached to the push button (by this I mean plug the resistor into positive and the wire into negative). Run the program again. What do you see? Why is it different?</li>
+<li>Add an LED to pin 13 on your Arduino (you should know ho to do this) and modify the program so that the Arduino turns on and off the LED when the button is pressed.</li>
+<li>Change the program so that when the button is pushed the light turns on for 5 seconds and then shuts off.</li>
+<li>Build the LED sequencer you built in the last lesson. Have the leds light up one after the other and repeat and when you push the button have them reverse direction.</li>
+</ul><div class="pager"><a class="prev" href="intro-serial.html"><div class="lbl">Previous</div><div class="ttl">4.1 — Serial Communication</div></a><a class="next" href="alternating-action.html"><div class="lbl">Next</div><div class="ttl">4.3 — Alternating Action</div></a></div></div>
+  </div>
+</div>
+<script>
+  const sb=document.getElementById('sidebar'),sc=document.getElementById('scrim'),mb=document.getElementById('menuBtn');
+  function close(){sb.classList.remove('open');sc.classList.remove('show');}
+  if(mb){mb.onclick=()=>{sb.classList.toggle('open');sc.classList.toggle('show');};}
+  if(sc){sc.onclick=close;}
+  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=940)close();}));
+</script>
+</body>
+</html>

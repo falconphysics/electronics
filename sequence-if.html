@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.1 — Sequence with If · Electronics with Microcontrollers</title>
+<meta name="description" content="A hands-on textbook for Pre-Engineering: Electronics with Microcontrollers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="kicker">Pre-Engineering</span>
+      <h1>Electronics with <span>Microcontrollers</span></h1>
+    </a>
+    <nav class="nav">
+<div class="grp">Sequenced Content</div>
+<a class="sec " href="ch2.html">Chapter 2 · Introduction to Arduino</a>
+<a class="sub " href="blink.html">2.2 — Blink</a>
+<a class="sub " href="breadboard.html">2.3 — Using a Breadboard</a>
+<a class="sec " href="ch3.html">Chapter 3 · Controlling the Flow</a>
+<a class="sub active" href="sequence-if.html">3.1 — Sequence with If</a>
+<a class="sub " href="sequence-while.html">3.2 — Sequence with While</a>
+<a class="sub " href="sequence-for.html">3.3 — Sequence with For</a>
+<a class="sec " href="ch4.html">Chapter 4 · Digital Input &amp; Serial</a>
+<a class="sub " href="intro-serial.html">4.1 — Serial Communication</a>
+<a class="sub " href="digital-input.html">4.2 — Digital Input</a>
+<a class="sub " href="alternating-action.html">4.3 — Alternating Action</a>
+<a class="sub " href="interesting-button.html">4.4 — Interesting Push Button</a>
+<a class="sec " href="ch5.html">Chapter 5 · Project — Make a Game</a>
+<a class="sec " href="ch6.html">Chapter 6 · Analog Data &amp; Sensors</a>
+<a class="sub " href="fading.html">6.1 — Fading LEDs</a>
+<a class="sub " href="arrays.html">6.2 — Arrays</a>
+<a class="sub " href="analog-read.html">6.3 — Analog Read &amp; Potentiometer</a>
+<a class="sub " href="photoresistor.html">6.4 — Photoresistor</a>
+<div class="grp">Extra Material</div>
+<a class="sec " href="sensors.html">Appendix · Sensors &amp; Such</a>
+<a class="sub " href="ultrasonic.html">Ultrasonic Rangefinder</a>
+<a class="sub " href="dht11.html">DHT11 Temp &amp; Humidity</a>
+<a class="sub " href="lcd.html">LCD Display</a>
+<a class="sub " href="joystick.html">Joystick Module</a>
+</nav>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰ Menu</button>
+      <span class="t-title">Electronics with Microcontrollers</span>
+    </div>
+    <div class="content"><div class="crumb">Chapter 3<span class="dot">/</span>Controlling the Flow</div><h1 id="31-sequence-leds-with-if">3.1 – SEQUENCE LEDS WITH IF</h1>
+<p><img alt="Arduino with 5 LEDs" src="assets/img/chap3/Arduino-5LEDs.png" /></p>
+<p>Let’s say you want to sequence LEDs, that is to say turn them on and off one after the other, but you’re lazy. You did this in an earlier lesson but your sketch had a lot of repetition. As it turns out, computers are great at repetition. They can do the same thing over and over again while each time changing one thing. Create a circuit with LEDs in pins 9-13. Don’t forget you’ll need a resistor for each LED.</p>
+<p>In this sketch we will let our Arduino do the hard work for us. The Arduino really is a computer, so we’ll let it do some repetitive calculations. Load this sketch on your Arduino and see what happens. Hit the reset button on your board to run it again.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>This sketch uses no new functions. Everything we’re doing here we’ve done in previous lessons. One of the reasons we use variables when we do a line of code like, digitalWrite (ledPin, HIGH); is so that we can change its value if we need to.</p>
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+
+<p>This line of code does just what it appears to say. However, it can appear confusing if you think about it in the math sense, but this is not an algebraic expression. In plane english this says, “Set the new value of ledPin to be the old value of ledPin minus one.”</p>
+<p>So with ledPin=ledPin-1 in our program the value of ledPin will decrease by one each time through the void loop(). The first time through ledPin is 13 so the LED in pin 13 will light up and then go out. We then subtract one and ledPin is given the value of 12, causing the LED in 12 to go on and then off, and so on. After a few times through it will be lower than our lowest pin and in fact will eventually be a negative number unless we do something about it!</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">  </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ledPin</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>We’ve added a new bit here that will allow the LED sequence start over:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ledPin</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+
+<p>This is an “if” function. It asks the questions, is this true? In this case it is asking if ledPin is less than 9.</p>
+<p>If the statement in parenthesis is true then the code in the curly braces is run. If the statement is false then the code in the curly braces is skipped.</p>
+<p>You may also have noticed that the “if” line does not end in a semi-colon. This is true of any line that is immediately followed by a set of curly braces. You’ll notice neither setup nor loop are followed by semi-colons either.
+<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/xNfma0XAM6I" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></p>
+<h3 id="other-stuff-to-know">Other stuff to know:</h3>
+<p>We could have used this code instead</p>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ledPin</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+
+<p>In this case it is asking if ledPin equals 8. We must use double equal sign to ask do these two equal each other. One of the most common mistakes is to use a single equal sign here. The single equal sign will not ask the questions is ledPin equal to 8. It will instead change the value of ledPin to be 8.</p>
+<h2 id="comparison-operators">Comparison Operators</h2>
+<p>In the table below are the other comparison operators you can use with an if statement.</p>
+<table>
+<thead>
+<tr>
+<th>syntax</th>
+<th>What it Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x==y</td>
+<td>x is equal to y</td>
+</tr>
+<tr>
+<td>x!=y</td>
+<td>x is not equal to y</td>
+</tr>
+<tr>
+<td>x&gt;y</td>
+<td>x is greater than y</td>
+</tr>
+<tr>
+<td>x&gt;=y</td>
+<td>x is greater than or equal to y</td>
+</tr>
+<tr>
+<td>x&lt;y</td>
+<td>x is less than y</td>
+</tr>
+<tr>
+<td>x&lt;=y</td>
+<td>x is less than or equal to y</td>
+</tr>
+</tbody>
+</table>
+<h2 id="more-stuff">More Stuff</h2>
+<p>In the future, you might want to ask two questions in the same if statement. In this case you would use a Boolean Operator. So if you wanted to ask two questions and wanted both to be true you’d ask:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+
+<p>This would be true only if a had a value between 0 and 10. You could tack on more &amp;&amp;’s and ask three or more questions as well. If you needed only one of the statements to be true you would use or instead of and. For or in Arduino, and many other programing languages, you use the “pipe” (shift-backslash). Just as and requires double-ampersands &amp;&amp;, or requires double-pipe ||:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Would be true if either or both statements were true.You might also want to investigate else and else if. This can be another way to ask multiple questions at the same time. For more detail on this you should check out the <a href="https://www.arduino.cc/reference/en/language/structure/control-structure/else/">Arduino Reference entry on Else</a>.</p>
+<h3 id="time-to-play">Time to play:</h3>
+<ul>
+<li>Add a couple more LEDs and change your code to accommodate them.</li>
+<li>Make the sequence go in the other direction. That is to say from 9 to 13.</li>
+</ul><div class="pager"><a class="prev" href="ch3.html"><div class="lbl">Previous</div><div class="ttl">Controlling the Flow</div></a><a class="next" href="sequence-while.html"><div class="lbl">Next</div><div class="ttl">3.2 — Sequence with While</div></a></div></div>
+  </div>
+</div>
+<script>
+  const sb=document.getElementById('sidebar'),sc=document.getElementById('scrim'),mb=document.getElementById('menuBtn');
+  function close(){sb.classList.remove('open');sc.classList.remove('show');}
+  if(mb){mb.onclick=()=>{sb.classList.toggle('open');sc.classList.toggle('show');};}
+  if(sc){sc.onclick=close;}
+  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=940)close();}));
+</script>
+</body>
+</html>

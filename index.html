@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home · Electronics with Microcontrollers</title>
+<meta name="description" content="A hands-on textbook for Pre-Engineering: Electronics with Microcontrollers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="kicker">Pre-Engineering</span>
+      <h1>Electronics with <span>Microcontrollers</span></h1>
+    </a>
+    <nav class="nav">
+<div class="grp">Sequenced Content</div>
+<a class="sec " href="ch2.html">Chapter 2 · Introduction to Arduino</a>
+<a class="sub " href="blink.html">2.2 — Blink</a>
+<a class="sub " href="breadboard.html">2.3 — Using a Breadboard</a>
+<a class="sec " href="ch3.html">Chapter 3 · Controlling the Flow</a>
+<a class="sub " href="sequence-if.html">3.1 — Sequence with If</a>
+<a class="sub " href="sequence-while.html">3.2 — Sequence with While</a>
+<a class="sub " href="sequence-for.html">3.3 — Sequence with For</a>
+<a class="sec " href="ch4.html">Chapter 4 · Digital Input &amp; Serial</a>
+<a class="sub " href="intro-serial.html">4.1 — Serial Communication</a>
+<a class="sub " href="digital-input.html">4.2 — Digital Input</a>
+<a class="sub " href="alternating-action.html">4.3 — Alternating Action</a>
+<a class="sub " href="interesting-button.html">4.4 — Interesting Push Button</a>
+<a class="sec " href="ch5.html">Chapter 5 · Project — Make a Game</a>
+<a class="sec " href="ch6.html">Chapter 6 · Analog Data &amp; Sensors</a>
+<a class="sub " href="fading.html">6.1 — Fading LEDs</a>
+<a class="sub " href="arrays.html">6.2 — Arrays</a>
+<a class="sub " href="analog-read.html">6.3 — Analog Read &amp; Potentiometer</a>
+<a class="sub " href="photoresistor.html">6.4 — Photoresistor</a>
+<div class="grp">Extra Material</div>
+<a class="sec " href="sensors.html">Appendix · Sensors &amp; Such</a>
+<a class="sub " href="ultrasonic.html">Ultrasonic Rangefinder</a>
+<a class="sub " href="dht11.html">DHT11 Temp &amp; Humidity</a>
+<a class="sub " href="lcd.html">LCD Display</a>
+<a class="sub " href="joystick.html">Joystick Module</a>
+</nav>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰ Menu</button>
+      <span class="t-title">Electronics with Microcontrollers</span>
+    </div>
+    <div class="cover">
+  <div class="hero">
+    <span class="tag">Pre-Engineering · A Hands-On Course</span>
+    <h1>Electronics with <span class="o">Microcontrollers</span></h1>
+    <p class="lede">Build real circuits and write real code. This textbook walks you
+       from your very first blinking LED through control structures, digital input,
+       serial communication, and analog sensors — one breadboard at a time.</p>
+    <div class="meta">
+      <span class="chip">Arduino</span>
+      <span class="chip">C / C++</span>
+      <span class="chip">6 Chapters</span>
+      <span class="chip">Breadboards &amp; Sensors</span>
+      <span class="chip">Project-Based</span>
+    </div>
+  </div>
+
+  <div class="section-head">Sequenced Content</div>
+  <div class="grid"><a class="card" href="ch2.html"><div class="num">Chapter 2</div><h3>Introduction to Arduino</h3><p>Set up the IDE, build your first circuit, and write your first sketch.</p></a>
+<a class="card" href="ch3.html"><div class="num">Chapter 3</div><h3>Controlling the Flow</h3><p>Three ways to handle repetition: if, while, and for.</p></a>
+<a class="card" href="ch4.html"><div class="num">Chapter 4</div><h3>Digital Input &amp; Serial</h3><p>Two-way communication: push buttons in, serial data out.</p></a>
+<a class="card" href="ch5.html"><div class="num">Chapter 5</div><h3>Project — Make a Game</h3><p>Put it all together and build a working game.</p></a>
+<a class="card" href="ch6.html"><div class="num">Chapter 6</div><h3>Analog Data &amp; Sensors</h3><p>Fading, arrays, potentiometers, and reading the light.</p></a></div>
+
+  <div class="section-head">Extra Material</div>
+  <div class="grid"><a class="card" href="sensors.html"><div class="num">Appendix</div><h3>Sensors &amp; Such</h3><p>Extra tutorials: rangefinder, temperature, LCD, and joystick.</p></a></div>
+
+  <div class="footer-note">
+    Pre-Engineering: Electronics with Microcontrollers. Originally a
+    <a href="http://www.highschoolmaker.com/electronics-with-micro-controllers/">WordPress course</a>,
+    rebuilt as a static site for GitHub Pages. Serial-communication material adapted from
+    Arduino tutorials by Limor Fried (ladyada) under
+    <a href="http://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>.
+  </div>
+</div>
+  </div>
+</div>
+<script>
+  const sb=document.getElementById('sidebar'),sc=document.getElementById('scrim'),mb=document.getElementById('menuBtn');
+  function close(){sb.classList.remove('open');sc.classList.remove('show');}
+  if(mb){mb.onclick=()=>{sb.classList.toggle('open');sc.classList.toggle('show');};}
+  if(sc){sc.onclick=close;}
+  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=940)close();}));
+</script>
+</body>
+</html>

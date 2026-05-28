@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4.3 — Alternating Action · Electronics with Microcontrollers</title>
+<meta name="description" content="A hands-on textbook for Pre-Engineering: Electronics with Microcontrollers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="kicker">Pre-Engineering</span>
+      <h1>Electronics with <span>Microcontrollers</span></h1>
+    </a>
+    <nav class="nav">
+<div class="grp">Sequenced Content</div>
+<a class="sec " href="ch2.html">Chapter 2 · Introduction to Arduino</a>
+<a class="sub " href="blink.html">2.2 — Blink</a>
+<a class="sub " href="breadboard.html">2.3 — Using a Breadboard</a>
+<a class="sec " href="ch3.html">Chapter 3 · Controlling the Flow</a>
+<a class="sub " href="sequence-if.html">3.1 — Sequence with If</a>
+<a class="sub " href="sequence-while.html">3.2 — Sequence with While</a>
+<a class="sub " href="sequence-for.html">3.3 — Sequence with For</a>
+<a class="sec " href="ch4.html">Chapter 4 · Digital Input &amp; Serial</a>
+<a class="sub " href="intro-serial.html">4.1 — Serial Communication</a>
+<a class="sub " href="digital-input.html">4.2 — Digital Input</a>
+<a class="sub active" href="alternating-action.html">4.3 — Alternating Action</a>
+<a class="sub " href="interesting-button.html">4.4 — Interesting Push Button</a>
+<a class="sec " href="ch5.html">Chapter 5 · Project — Make a Game</a>
+<a class="sec " href="ch6.html">Chapter 6 · Analog Data &amp; Sensors</a>
+<a class="sub " href="fading.html">6.1 — Fading LEDs</a>
+<a class="sub " href="arrays.html">6.2 — Arrays</a>
+<a class="sub " href="analog-read.html">6.3 — Analog Read &amp; Potentiometer</a>
+<a class="sub " href="photoresistor.html">6.4 — Photoresistor</a>
+<div class="grp">Extra Material</div>
+<a class="sec " href="sensors.html">Appendix · Sensors &amp; Such</a>
+<a class="sub " href="ultrasonic.html">Ultrasonic Rangefinder</a>
+<a class="sub " href="dht11.html">DHT11 Temp &amp; Humidity</a>
+<a class="sub " href="lcd.html">LCD Display</a>
+<a class="sub " href="joystick.html">Joystick Module</a>
+</nav>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰ Menu</button>
+      <span class="t-title">Electronics with Microcontrollers</span>
+    </div>
+    <div class="content"><div class="crumb">Chapter 4<span class="dot">/</span>Digital Input &amp; Serial</div><h1 id="43-alternating-action">4.3 – Alternating Action</h1>
+<p><img alt="Arduino with button" src="assets/img/chap4/pushbutton-no-led.png" /></p>
+<p>Let’s say we wanted to create a counter so that counts how many times we press a button. We might try the code below:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">buttonPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">buttonState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">buttonPin</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">  </span><span class="n">buttonState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">buttonPin</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buttonState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Count = &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Print &quot;Waiting&quot; to the Serial Monitor</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>You’ll probably see that if you hold the button too long you get more than one added to your count. We could make our delay longer to try to make it easier to let go of the button before it counts again. However, this is not really a good solution.</p>
+<p>What we really want is an alternating action switch, where the press-and-release of a button does something, not the press-and-hold. Basically we want to test whether the button was just pressed, or even just released. Try this code:</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">buttonPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">buttonState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">buttonPressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">buttonPin</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">  </span><span class="c1">// Check to see if the button is pressed here</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buttonState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buttonPressed</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Button Pressed&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">buttonPressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buttonState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">buttonPressed</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Button Released&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">buttonPressed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>In the last section something was printed to the serial monitor every time through the loop. Now we only print when the button has just been pressed or just been released. We did this by checking two conditions at the same time. (If you need to review this go back to section 3.1 and watch the video.) We also created a new variable that changes when the button is either pressed or released.</p>
+<h3 id="tasks-to-accomplish">Tasks to Accomplish</h3>
+<ul>
+<li>Actually write a program to track the number of times a button is pressed.</li>
+<li>Change your counting program to start at 10 and count down. When you get to zero it should print “Blast Off!!!” and then reset the counter to 10.</li>
+<li>Write a program to toggle on and off an LED. I press once and the LED turns on, press a second time to turn it off, press again and it turns back on, and so on.</li>
+</ul><div class="pager"><a class="prev" href="digital-input.html"><div class="lbl">Previous</div><div class="ttl">4.2 — Digital Input</div></a><a class="next" href="interesting-button.html"><div class="lbl">Next</div><div class="ttl">4.4 — Interesting Push Button</div></a></div></div>
+  </div>
+</div>
+<script>
+  const sb=document.getElementById('sidebar'),sc=document.getElementById('scrim'),mb=document.getElementById('menuBtn');
+  function close(){sb.classList.remove('open');sc.classList.remove('show');}
+  if(mb){mb.onclick=()=>{sb.classList.toggle('open');sc.classList.toggle('show');};}
+  if(sc){sc.onclick=close;}
+  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=940)close();}));
+</script>
+</body>
+</html>

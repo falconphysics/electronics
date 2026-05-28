@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6.1 — Fading LEDs · Electronics with Microcontrollers</title>
+<meta name="description" content="A hands-on textbook for Pre-Engineering: Electronics with Microcontrollers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="kicker">Pre-Engineering</span>
+      <h1>Electronics with <span>Microcontrollers</span></h1>
+    </a>
+    <nav class="nav">
+<div class="grp">Sequenced Content</div>
+<a class="sec " href="ch2.html">Chapter 2 · Introduction to Arduino</a>
+<a class="sub " href="blink.html">2.2 — Blink</a>
+<a class="sub " href="breadboard.html">2.3 — Using a Breadboard</a>
+<a class="sec " href="ch3.html">Chapter 3 · Controlling the Flow</a>
+<a class="sub " href="sequence-if.html">3.1 — Sequence with If</a>
+<a class="sub " href="sequence-while.html">3.2 — Sequence with While</a>
+<a class="sub " href="sequence-for.html">3.3 — Sequence with For</a>
+<a class="sec " href="ch4.html">Chapter 4 · Digital Input &amp; Serial</a>
+<a class="sub " href="intro-serial.html">4.1 — Serial Communication</a>
+<a class="sub " href="digital-input.html">4.2 — Digital Input</a>
+<a class="sub " href="alternating-action.html">4.3 — Alternating Action</a>
+<a class="sub " href="interesting-button.html">4.4 — Interesting Push Button</a>
+<a class="sec " href="ch5.html">Chapter 5 · Project — Make a Game</a>
+<a class="sec " href="ch6.html">Chapter 6 · Analog Data &amp; Sensors</a>
+<a class="sub active" href="fading.html">6.1 — Fading LEDs</a>
+<a class="sub " href="arrays.html">6.2 — Arrays</a>
+<a class="sub " href="analog-read.html">6.3 — Analog Read &amp; Potentiometer</a>
+<a class="sub " href="photoresistor.html">6.4 — Photoresistor</a>
+<div class="grp">Extra Material</div>
+<a class="sec " href="sensors.html">Appendix · Sensors &amp; Such</a>
+<a class="sub " href="ultrasonic.html">Ultrasonic Rangefinder</a>
+<a class="sub " href="dht11.html">DHT11 Temp &amp; Humidity</a>
+<a class="sub " href="lcd.html">LCD Display</a>
+<a class="sub " href="joystick.html">Joystick Module</a>
+</nav>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰ Menu</button>
+      <span class="t-title">Electronics with Microcontrollers</span>
+    </div>
+    <div class="content"><div class="crumb">Chapter 6<span class="dot">/</span>Analog Data &amp; Sensors</div><h1 id="chapter-61-fading-leds">CHAPTER 6.1 - FADING LEDS</h1>
+<p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/dn26xGw4GLQ" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></p>
+<p><img alt="Arduino with LED" src="assets/img/chap6/Fading-Breadboard.png" /></p>
+<p>PWM stands for Pulse Width Modulation. We can use this to simulate an analog output. This is not really an analog output, but a digital approximation of analog. Basically it sends signals of varying lengths causing our led to be on and off for varying lengths of time… What the heck is that supposed to mean? Basically we flash an LED very fast, so fast we can’t tell it’s flashing. The more time that is spent “off” the dimmer it will appear to our eyes. Not all pins are capable of PWM. The pins that are, are marked with either a ~ or PWM and are pins: 3, 5, 6, 9, 10, 11.</p>
+<p>PWM can have values ranging from 0 – 255 (256 possible states). When set to zero the led will be off, when set to 255 the LED will be at its brightest. If you put in a number higher than 255 the Arduino will still use it, however it will not be brighter. Basically it will “wrap”, so 256 will be interpreted as 0 and the LED will be off, 267 will behave the same as 10 and so on.</p>
+<p>In the sketch below, you can see a for loop. It starts at zero and increases to 255 in increments of 5.
+fadeValue+=5 means fadeValue=fadeValue+5 (it’s the lazy way of writing it).</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// pinMode is not needed for Analog Write</span>
+
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fadeValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fadeValue</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"> </span><span class="n">fadeValue</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">fadeValue</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fadeValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span><span class="w"> </span><span class="n">fadeValue</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">fadeValue</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">fadeValue</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>We have one new command in this Sketch:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">analogWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">fadeValue</span><span class="p">);</span>
+</code></pre></div>
+
+<p>analogWrite has two arguments. The first is a pin number that corresponds to one of the PWM pins. The second is a number between 0 and 255. This does not have to be in a for loop. You can, for example flash your LED at a lower brightness by using code like:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">analogWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="w">  </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+</code></pre></div>
+
+<p>In this case analogWrite(ledPin, 0) is equivalent to writing digitalWrite(ledPin, LOW).</p>
+<p>Here’s another version of the fading LED that does not involve using a for loop. In this case we are using if.</p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">brightness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">fadeAmount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">analogWrite</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="n">brightness</span><span class="p">);</span>
+<span class="w">  </span><span class="n">brightness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">brightness</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fadeAmount</span><span class="p">;</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">if</span><span class="p">(</span><span class="n">brightness</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">brightness</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">fadeAmount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fadeAmount</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Can you explain how this code works?</p>
+<h3 id="additional-tasks">Additional Tasks:</h3>
+<ul>
+<li>I’ve given you versions of pulsing LEDs that use for and if. Can you use while to do the same thing?</li>
+<li>Find two different ways to change the fading speed.</li>
+<li>Fade multiple LEDs</li>
+<li>Make the fading respond to a push button – Make the LED fade up to full and stay on when the button is pressed and fade down to nothing and stay off when not pressed.</li>
+</ul>
+<h3 id="one-more-thing-color-mixing">One more Thing: Color Mixing</h3>
+<p>For a little fun go into the Black Case labeled “Special Components” and find an RGB LED. These are LEDs with four legs.</p>
+<p><img alt="RGB LED wiring" src="assets/img/chap6/rgbLED.jpeg" /></p>
+<p>These are really three LEDs in one: red, green, and blue (hence the RGB). The longest lead is the negative (GND). I recommend bending the GND lead slightly and then putting it in the breadboard as shown. Since this is three LEDs you will need three resistors.</p>
+<p>By combining different amounts of red, green, and blue you can make any color you want. Try it below and then use your Arduino and an RGB LED to make a cool light show by fading from one color into another. You might want to make a <a href="http://www.highschoolmaker.com/physics/led-color-mixer-make-and-take/">paper cube</a> to defuse the light more.</p><div class="pager"><a class="prev" href="ch6.html"><div class="lbl">Previous</div><div class="ttl">Analog Data &amp; Sensors</div></a><a class="next" href="arrays.html"><div class="lbl">Next</div><div class="ttl">6.2 — Arrays</div></a></div></div>
+  </div>
+</div>
+<script>
+  const sb=document.getElementById('sidebar'),sc=document.getElementById('scrim'),mb=document.getElementById('menuBtn');
+  function close(){sb.classList.remove('open');sc.classList.remove('show');}
+  if(mb){mb.onclick=()=>{sb.classList.toggle('open');sc.classList.toggle('show');};}
+  if(sc){sc.onclick=close;}
+  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=940)close();}));
+</script>
+</body>
+</html>

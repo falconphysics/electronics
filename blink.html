@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.2 — Blink · Electronics with Microcontrollers</title>
+<meta name="description" content="A hands-on textbook for Pre-Engineering: Electronics with Microcontrollers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="kicker">Pre-Engineering</span>
+      <h1>Electronics with <span>Microcontrollers</span></h1>
+    </a>
+    <nav class="nav">
+<div class="grp">Sequenced Content</div>
+<a class="sec " href="ch2.html">Chapter 2 · Introduction to Arduino</a>
+<a class="sub active" href="blink.html">2.2 — Blink</a>
+<a class="sub " href="breadboard.html">2.3 — Using a Breadboard</a>
+<a class="sec " href="ch3.html">Chapter 3 · Controlling the Flow</a>
+<a class="sub " href="sequence-if.html">3.1 — Sequence with If</a>
+<a class="sub " href="sequence-while.html">3.2 — Sequence with While</a>
+<a class="sub " href="sequence-for.html">3.3 — Sequence with For</a>
+<a class="sec " href="ch4.html">Chapter 4 · Digital Input &amp; Serial</a>
+<a class="sub " href="intro-serial.html">4.1 — Serial Communication</a>
+<a class="sub " href="digital-input.html">4.2 — Digital Input</a>
+<a class="sub " href="alternating-action.html">4.3 — Alternating Action</a>
+<a class="sub " href="interesting-button.html">4.4 — Interesting Push Button</a>
+<a class="sec " href="ch5.html">Chapter 5 · Project — Make a Game</a>
+<a class="sec " href="ch6.html">Chapter 6 · Analog Data &amp; Sensors</a>
+<a class="sub " href="fading.html">6.1 — Fading LEDs</a>
+<a class="sub " href="arrays.html">6.2 — Arrays</a>
+<a class="sub " href="analog-read.html">6.3 — Analog Read &amp; Potentiometer</a>
+<a class="sub " href="photoresistor.html">6.4 — Photoresistor</a>
+<div class="grp">Extra Material</div>
+<a class="sec " href="sensors.html">Appendix · Sensors &amp; Such</a>
+<a class="sub " href="ultrasonic.html">Ultrasonic Rangefinder</a>
+<a class="sub " href="dht11.html">DHT11 Temp &amp; Humidity</a>
+<a class="sub " href="lcd.html">LCD Display</a>
+<a class="sub " href="joystick.html">Joystick Module</a>
+</nav>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰ Menu</button>
+      <span class="t-title">Electronics with Microcontrollers</span>
+    </div>
+    <div class="content"><div class="crumb">Chapter 2<span class="dot">/</span>Introduction to Arduino</div><h1 id="22-blink">2.2 – BLINK</h1>
+<h2 id="introduction">Introduction</h2>
+<p>When you plug in a new Arduino for the first time there is a light on the board that starts to flash. The Arduino is running a program that was pre-loaded into memory. As soon as it is powered up the Arduino will run whatever program is already in it’s memory. For our first programming task we are going to change this program.
+<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/ap8lc19qhoo" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></p>
+<h2 id="getting-started">Getting Started</h2>
+<p>Arduino programs are called Sketches. The Arduino was created to help make it easier for artists to incorporate electronics into their projects. Sketch was adopted to make the whole process less intimidating.</p>
+<p>Sketches are written in C or C++, both are popular programming languages. Believe it or not this is fairly close to plain English. Once you start getting the hang of things this will become more evident. The Arduino software converts this into a form the Arduino board will understand and be able to execute.</p>
+<p>Copy the code below, paste into Arduino, and upload to your board.</p>
+<p>Here’s the complete code:</p>
+<div class="codehilite"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm">  Blink</span>
+<span class="cm">  Turns on an LED on for one second, then off for one second, repeatedly.</span>
+
+<span class="cm">  This example code is in the public domain.</span>
+<span class="cm"> */</span>
+
+<span class="c1">// Pin 13 has an LED connected on most Arduino boards.</span>
+<span class="c1">// give it a name:</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+
+<span class="c1">// the setup routine runs once when you press reset:</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                </span>
+<span class="w">  </span><span class="c1">// initialize the digital pin as an output.</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">     </span>
+<span class="p">}</span>
+
+<span class="c1">// the loop routine runs over and over again forever:</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">   </span><span class="c1">// turn the LED on (HIGH is the voltage level)</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">               </span><span class="c1">// wait for a second</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w">    </span><span class="c1">// turn the LED off by making the voltage LOW</span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">               </span><span class="c1">// wait for a second</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Right now, I’m sure this doesn’t mean much to you. We will break it down a piece at a time.</p>
+<h2 id="comments">Comments</h2>
+<p>You’ll notice that there is quite a bit of grey text in the sketch. This text is completely understandable by humans, but the Arduino can’t understand it. This text is Comments. Comments are added by the programmer to explain what the various parts of the code do. It is important to include comments in your code for two very important reasons.</p>
+<p>First, if you share your code other people will be able to understand what you did, or may even be able to learn from you. The second reason for commenting your code is so that you can remember why you did what you did. I don’t know how many times I’ve had to help a student figure out how their own code works after we get back from a long weekend or a vacation.</p>
+<p>There are two ways for creating comments. This is an example of Block Comments:</p>
+<div class="codehilite"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm">  Blink</span>
+<span class="cm">  Turns on an LED on for one second, then off for one second, repeatedly.</span>
+
+<span class="cm">  This example code is in the public domain.</span>
+<span class="cm"> */</span>
+</code></pre></div>
+
+<p>At the beginning there is a /<em> to start the block. At the end we have a </em>/ to end the block. The Arduino will ignore everything between these marks. You can also use // to create single line comments or comments at the end of a line of code.</p>
+<p><code>digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)</code></p>
+<p>Everything after the // will be ignored by your Arduino. All of the Example Sketches are well commented. This is one of the reasons they are such a good learning tool.</p>
+<h2 id="variables">Variables</h2>
+<p>The next piece is where the fun starts.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Pin 13 has an LED connected on most Arduino boards.</span>
+<span class="c1">// give it a name:</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span>
+</code></pre></div>
+
+<p>This line of code creates a variable and assigns a value to it. led = 13 literally means make the word “led” synonymous with 13. Anytime the Arduino sees the word led it will “think” 13 instead. We could use virtually any word instead of “led” but it is usually a good idea to give variables logical names so you can remember what they are being used for later. The programmer is going to use this variable with a light emitting diode (LED) so named it accordingly.</p>
+<p>You may have noticed that I didn’t mention the int from that line of code. This tells us what sort of variable we are creating.  int means we are creating an integer, or whole number. You can read about other variable types in the Arduino Reference, but you don’t need to know all that right now.</p>
+<p>The end of int led = 13; is a semicolon. The semicolon ends the statement just like a period ends a sentence. In general most lines of code will end with a semicolon. Missing semicolons is by far the most common error beginning programmers make.</p>
+<h2 id="functions">Functions</h2>
+<p>In order to talk about the next block of code we need to introduce the concept of Functions. These are procedures that get run when the sketch is executed. All Arduino sketches must have setup and loop functions, even if they contain no lines of code in them.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// the setup routine runs once when you press reset:</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">                </span>
+<span class="w">  </span><span class="c1">// initialize the digital pin as an output.</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">     </span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>All of the lines of code between the curly braces, { and }, run one time when the sketch starts. So, when the sketch is first uploaded to the Arduino, when the Arduino is plugged into power, or after the rest button is pressed.</p>
+<p>After the setup runs once the loop runs. Each line of code will be executed in the loop and when the end is reached the loop will start over again. The loop will repeat endlessly while the Arduino has power.</p>
+<h2 id="function-calls">Function Calls</h2>
+<p>Functions Calls</p>
+<p>Within both the setup and loop functions are a number of other functions. The code behind these functions is hidden from our view. All we see are the function names and inputs. The function name is followed by a set of parentheses. Inside the parentheses are the function’s arguments.</p>
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w">     </span>
+</code></pre></div>
+
+<p>The function pinMode has two arguments. The first is a number that corresponds to one of the digital pins on our Arduino. You’ll notice in this case there is no number but the variable led. It is important to remember that when the Arduino “sees” led it sees the number 13. The second argument is OUTPUT. Digital pins can be inputs or outputs. When lighting up LEDs we set the pin to be an output, if we were to use a pushbutton we’d set it to an input. This line of code tells the Arduino to use pin 13 as an output pin. Since we only need to do this once we typically put this line of code in the setup function.</p>
+<p>As it turns out, pin 13 is also tied to an LED that is mounted on the board. We’ll just look at this LED. In the next lesson we’ll learn how to add an external LED.</p>
+<p><img alt="Arduino showing Blinking LED" src="assets/img/chap2/ArduinoLED.png" /></p>
+<p>There are two other functions to note in this sketch, digitalWrite and delay. Like pinMode, digital Write has two arguments. The first argument is the number of one of the digital pins. The second argument must either be HIGH or LOW. If set to HIGH the pin on the Arduino will output +5 volts, when set to LOW it will act as a Ground (negative). digitalWrite(led, HIGH) will turn on the LED attached to pin 13. digitalWrite(led, LOW) will turn the LED off.</p>
+<p>The delay function has only one argument. This is the number of milliseconds to “delay” for. So, delay(1000) means pause the sketch for one second. If you wanted half a second you’d delay for 500 milliseconds.</p>
+<p>So the loop will:
+1. Turn on the LED
+2. Wait one second
+3. Turn off the LED
+4. Wait one second
+5. Repeat
+This will continue as long as the board has power.</p>
+<h3 id="now-you-should-play">Now, you should play:</h3>
+<ul>
+<li>Make it blink faster and/or slower</li>
+<li>Make the two delays last for different amounts of time</li>
+<li>Make it blink just barely fast enough that you can’t see the flashes. Then gently wave it back and forth (you might need to turn the lights in your room off)</li>
+</ul><div class="pager"><a class="prev" href="ch2.html"><div class="lbl">Previous</div><div class="ttl">Introduction to Arduino</div></a><a class="next" href="breadboard.html"><div class="lbl">Next</div><div class="ttl">2.3 — Using a Breadboard</div></a></div></div>
+  </div>
+</div>
+<script>
+  const sb=document.getElementById('sidebar'),sc=document.getElementById('scrim'),mb=document.getElementById('menuBtn');
+  function close(){sb.classList.remove('open');sc.classList.remove('show');}
+  if(mb){mb.onclick=()=>{sb.classList.toggle('open');sc.classList.toggle('show');};}
+  if(sc){sc.onclick=close;}
+  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=940)close();}));
+</script>
+</body>
+</html>

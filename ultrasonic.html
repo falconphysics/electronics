@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ultrasonic Rangefinder · Electronics with Microcontrollers</title>
+<meta name="description" content="A hands-on textbook for Pre-Engineering: Electronics with Microcontrollers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html">
+      <span class="kicker">Pre-Engineering</span>
+      <h1>Electronics with <span>Microcontrollers</span></h1>
+    </a>
+    <nav class="nav">
+<div class="grp">Sequenced Content</div>
+<a class="sec " href="ch2.html">Chapter 2 · Introduction to Arduino</a>
+<a class="sub " href="blink.html">2.2 — Blink</a>
+<a class="sub " href="breadboard.html">2.3 — Using a Breadboard</a>
+<a class="sec " href="ch3.html">Chapter 3 · Controlling the Flow</a>
+<a class="sub " href="sequence-if.html">3.1 — Sequence with If</a>
+<a class="sub " href="sequence-while.html">3.2 — Sequence with While</a>
+<a class="sub " href="sequence-for.html">3.3 — Sequence with For</a>
+<a class="sec " href="ch4.html">Chapter 4 · Digital Input &amp; Serial</a>
+<a class="sub " href="intro-serial.html">4.1 — Serial Communication</a>
+<a class="sub " href="digital-input.html">4.2 — Digital Input</a>
+<a class="sub " href="alternating-action.html">4.3 — Alternating Action</a>
+<a class="sub " href="interesting-button.html">4.4 — Interesting Push Button</a>
+<a class="sec " href="ch5.html">Chapter 5 · Project — Make a Game</a>
+<a class="sec " href="ch6.html">Chapter 6 · Analog Data &amp; Sensors</a>
+<a class="sub " href="fading.html">6.1 — Fading LEDs</a>
+<a class="sub " href="arrays.html">6.2 — Arrays</a>
+<a class="sub " href="analog-read.html">6.3 — Analog Read &amp; Potentiometer</a>
+<a class="sub " href="photoresistor.html">6.4 — Photoresistor</a>
+<div class="grp">Extra Material</div>
+<a class="sec " href="sensors.html">Appendix · Sensors &amp; Such</a>
+<a class="sub active" href="ultrasonic.html">Ultrasonic Rangefinder</a>
+<a class="sub " href="dht11.html">DHT11 Temp &amp; Humidity</a>
+<a class="sub " href="lcd.html">LCD Display</a>
+<a class="sub " href="joystick.html">Joystick Module</a>
+</nav>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn">☰ Menu</button>
+      <span class="t-title">Electronics with Microcontrollers</span>
+    </div>
+    <div class="content"><div class="crumb">Appendix<span class="dot">/</span>Sensors &amp; Such</div><h1 id="ultrasonic-range-finder">Ultrasonic Range Finder</h1>
+<p>This sensor sends out ultrasound waves and then listens for a reflection to return to the sensor. Basically this is a sonar. By timing how long it takes for the sound to return, the distance to an object can be caluclated. The code below assumes the speed of sound is 340 m/s. It should be noted that the speed of sound will vary slightly based on the temparature and atmospheric pressure. So unless you account for this you will not be able to be precise.</p>
+<p><img alt="Circuit for theRange Finder" src="assets/img/sensors/range_finder.png" /></p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// defines pins numbers</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">trigPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">echoPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+
+
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">// Sets the trigPin as an Output</span>
+<span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">echoPin</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">// Sets the echoPin as an Input</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span><span class="w"> </span><span class="c1">// Starts the serial communication</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Distance: &quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">readSensor</span><span class="p">());</span><span class="w">  </span>
+<span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">readSensor</span><span class="p">(){</span>
+<span class="w">  </span><span class="c1">// defines variables</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">duration</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Clears the trigPin</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Sets the trigPin on HIGH state for 10 micro seconds</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">trigPin</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Reads the echoPin, returns the sound wave travel time in microseconds</span>
+<span class="w">  </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pulseIn</span><span class="p">(</span><span class="n">echoPin</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Calculating the distance in cm</span>
+<span class="w">  </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.034</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span>
+
+<span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+
+<h2 id="play-and-learn">Play and Learn</h2>
+<ul>
+<li>What is the maximum range?</li>
+<li>Is there a minimum range?</li>
+<li>How precise is it?</li>
+<li>Will multiple sensors interfere with each other?</li>
+<li>How small can your target be?</li>
+<li>How well do you need to aim? (i.e. is it like a laser pointer or is it bigger than that)</li>
+</ul><div class="pager"><a class="prev" href="sensors.html"><div class="lbl">Previous</div><div class="ttl">Sensors &amp; Such</div></a><a class="next" href="dht11.html"><div class="lbl">Next</div><div class="ttl">DHT11 Temp &amp; Humidity</div></a></div></div>
+  </div>
+</div>
+<script>
+  const sb=document.getElementById('sidebar'),sc=document.getElementById('scrim'),mb=document.getElementById('menuBtn');
+  function close(){sb.classList.remove('open');sc.classList.remove('show');}
+  if(mb){mb.onclick=()=>{sb.classList.toggle('open');sc.classList.toggle('show');};}
+  if(sc){sc.onclick=close;}
+  document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>{if(window.innerWidth<=940)close();}));
+</script>
+</body>
+</html>
