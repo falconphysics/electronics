@@ -7,6 +7,8 @@ styled, navigable web page with a sidebar, prev/next paging, syntax-highlighted
 Arduino code, **embedded YouTube videos**, and a responsive (mobile-friendly)
 layout.
 
+You can visit my version of the site here: [https://falconphysics.github.io/electronics/index.html](https://falconphysics.github.io/electronics/index.html). Or follow the instrucitons below to make your won.
+
 ## What's inside
 
 ```
